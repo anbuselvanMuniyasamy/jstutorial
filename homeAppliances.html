@@ -23,25 +23,33 @@
             <div class="row mt-4">
                 <div class="col"> <div id="tvDiv"></div> </div>
             </div>
+            
         </div>
         <div class="row mt-4">
             <div class="col"><button type="button" class="btn btn-primary" onclick="lightSwitch()">Light</button></div>
-            <div class="col"><button type="button" class="btn btn-primary">Fan 1</button></div>
-            <div class="col"><button type="button" class="btn btn-primary">Fan 2</button></div>
-            <div class="col"><button type="button" class="btn btn-primary">TV</button></div>
-        </div>
+            <div class="col"><button type="button" class="btn btn-primary" onclick="fan1switch()">Fan 1</button></div>
+            <div class="col"><button type="button" class="btn btn-primary"onclick="fan2switch()">Fan 2</button></div>
+            <div class="col"><button type="button" class="btn btn-primary"onclick="tvswitch()">TV</button></div>
+            
+        </div>  
     </div>
     <script>
         var light;
         var fan1;
         var fan2;
         var tv;
+       
         var isLightOn = false;
+        var isfan1on = false;
+        var isfan2on = false;
+        var istvon = false;
+        
         function getInputs(){
             light = document.getElementById('lightDiv');
             fan1 = document.getElementById('fan1Div');
             fan2 = document.getElementById('fan2Div');
             tv = document.getElementById('tvDiv');
+           
         }
         getInputs();
         function lightSwitch(){
@@ -52,8 +60,40 @@
                 light.style.backgroundColor = "green";
                 isLightOn = true;
             }
-            
         }
+        
+        function fan1switch(){
+            if(isfan1on){
+                fan1.style.backgroundColor = "red";
+                isfan1on = false;
+            }else{
+                fan1.style.backgroundColor = "purple";
+                isfan1on = true;
+            }
+        }
+         function fan2switch(){
+            if(isfan2on){
+                fan2.style.backgroundColor = "red";
+                isfan2on = false;
+            }else{
+                fan2.style.backgroundColor = "purple";
+                isfan2on = true;
+            }
+         }   
+         function tvswitch(){
+            if(istvon){
+                tv.style.backgroundColor = "red";
+                istvon = false;
+            }else{
+                tv.style.backgroundColor = "orange";
+                istvon = true;
+            }
+         } 
+         
+               
+            
+        
+        
     </script>
     <style>
         #lightDiv{
@@ -66,12 +106,17 @@
             height: 200px;
             border-radius: 100px;
             background-color: red;
+            border: 5px;
+            border-color:green;
+            border-style: dotted;
         }
         #tvDiv{
             width:200px;
             height: 150px;
             background-color: grey;
         }
+        
+        
     </style>
 </body>
 </html>

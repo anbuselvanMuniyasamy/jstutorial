@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range of Numbers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="row mt-4">
+        <div class="col"> Display the Range</div>
+        <div class="col">
+            
+    
+    <input type="number" id="start" placeholder="Start number">
+    <input type="number" id="end" placeholder="End number">
+    <button onclick="printRange()">Show Range</button>
+
+    <p id="result"></p>
+
+    <script>
+        function printRange() {
+            let start = Number(document.getElementById('start').value);
+            let end = Number( document.getElementById('end').value);
+            let result = "";
+
+
+            if(start > end){
+
+                for(let num = start; num >= end; num--){
+                    result += num + "<br>";
+                }
+            }else{
+
+            for (let num = start; num <= end; num++) {
+                console.log(num);
+                result += num + "<br>";
+            }
+        }
+            document.getElementById('result').innerHTML = result;
+        }
+        printRange();
+       </script>
+        </div>
+       </div>
+
+
+
+
+<div class="row mt-4">
+    <div class="col"> Multiplication Table</div>
+    <div class="col">
+       <input type="number" id="Multiple" placeholder=" Enter the number">
+        <button onclick="MultipleTable()" class="btn btn-warning"> Table </button>
+        <p id="Result"></p>
+        <script>
+            function MultipleTable() {
+                let Multiple = Number(document.getElementById('Multiple').value);
+                let result = "";
+                
+                for (let num = 1; num <= 10; num++){
+                    let a = num * Multiple;
+                    result += Multiple + "*" + num + "=" + a+ '<br>';
+                }                
+                document.getElementById('Result').innerHTML = result;
+            }
+            
+        </script>
+    </div>
+</div>
+
+
+
+<div class="row mt-4">
+    <div class="col"> User Gn range of Multiplication Table</div>
+    <div class="col">
+       <input type="number" id="range" placeholder=" Enter the range">
+       <input type="number" id="first" placeholder=" Enter the number">
+       <input type="number" id="second" placeholder=" Enter the number">
+        <button onclick="MultipleTable()" class="btn btn-warning"> Table </button>
+        <p id="IResult"></p>
+
+        <script>
+             
+             function MultipleTable(){
+          
+                let range = Number(document.getElementById('range').value);
+                let start = Number(document.getElementById('first').value);
+                let end = Number(document.getElementById('second').value);
+
+                let result = "";
+
+                for(let num = start; num <= end; num++){
+                    let a = range * num;
+                    result +=  range + "*" + num + "=" + a + "<br>";
+
+                }
+                document.getElementById('IResult').innerHTML = result;
+             }
+
+        </script>
+    </div>
+</div>
+
+
+
+<div class="row mt-4">
+    <div class="col">For Loop</div>
+    <div class="col">
+        <p id="forLoopResult"></p>
+        <script>
+            function forLoopEx() {
+
+                let result = "";
+                //initialization ; condition; incre/decre
+                for (let num = 1; num <= 10; num++) {
+                    console.log(num);
+                    result += num + "<br>";  // result = result + num;
+                }
+
+                for (let num = 100; num > 90; num--) {
+                    result += num + "<br>";
+
+                }
+                document.getElementById('forLoopResult').innerHTML = result;
+
+                let whNum=500;
+                while(whNum < 310){
+                    console.log(whNum);
+                    whNum++;
+                }
+
+                let dWhNum = 600;
+                do{
+                    console.log(dWhNum);
+                    dWhNum++;
+                }while(dWhNum<410);
+            }
+            forLoopEx();
+        </script>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+    <div class="col">Reverse a number using while loop</div>
+    <div class="col">
+        <input type="number" id="reverse" placeholder="Enter the number"><br>
+        <button class="btn btn-warning" onclick="RevNumber()">Reverse the Number</button>
+
+        <p id="RevResult"></p>
+        <script>
+
+             function RevNumber(){
+
+                let number = Number(document.getElementById('reverse').value);
+                let result = 0;
+                while(number > 0){
+                    let lastDigit = number % 10;
+                    result = (result * 10) + lastDigit;
+                 number = (number - lastDigit) / 10;
+            
+                }
+                document.getElementById('RevResult').innerHTML = result;
+             }
+       </script>
+    </div>
+</div>
+
+
+
+<div class="row mt-4">
+    <div class="col"> Display the Range for odd number</div>
+    <div class="col">
+        
+<input type="number" id="RNumber1" placeholder="Enter your range"><br>
+<input type="number" id="RNumber2" placeholder="Enter your range">
+<button onclick="printOdd()"> Print OddNumber</button>
+
+<p id="OddNumber"></p>
+
+<script>
+    function printOdd() {
+        let first = Number(document.getElementById('RNumber1').value);
+        let second = Number( document.getElementById('RNumber2').value);
+        let result = "";
+
+        if(first % 2 == 0){
+            first += 1;
+        }
+            while(first <= second){
+                result += first + "<br>";
+                first += 2;
+        }
+    
+        document.getElementById('OddNumber').innerHTML = result;
+}
+
+   </script>
+    </div>
+   </div>
+
+
+
+   <div class="row mt-4">
+    <div class="col">Neutrolize to single digit</div>
+    <div class="col">
+        <input type="number" id="neutroNum" name="neutroNum" class="form-control"/>
+        <button type="button" class="btn btn-primary mt-2" onclick="neutrolizeNum()">Neutrolize</button>
+        <p id="neutroResult"></p>
+        <script>
+            function neutrolizeNum(){
+                let num = Number(document.getElementById('neutroNum').value);
+                let result = "";
+                let moduVal = 0;
+                
+                //51 => 5 + 1 => 6
+                // moduVal = num % 10;  // 1
+                // num = Math.floor(num /10); //5
+                // moduVal = moduVal + (num % 10); // 1 + 5
+                // num = Math.floor(num /10); //0
+                // result = moduVal;
+
+                while(num != 0){
+                    console.log("Before Num : " +num + " Modu :" + moduVal);
+                    moduVal += num % 10;
+                    num = Math.floor(num /10);
+                    console.log("After Num : " +num + " Modu :" + moduVal);
+                    if(num == 0 && moduVal > 9){                                
+                        num = moduVal;
+                        moduVal = 0;
+                    }
+                }
+
+                document.getElementById('neutroResult').innerHTML = moduVal;
+            }
+        </script>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+    <div class="col">Factorial Number</div>
+    <div class="col">
+        
+        <label for="number">Enter a number:</label>
+    <input type="text" id="FactoNum" />
+    <button onclick="calculateFactorial()">Calculate</button>
+    <p id="Fresult"></p>
+
+    <script>
+        function calculateFactorial() {
+            var num = Number(document.getElementById("FactoNum").value); 
+            var factorial = 1;
+
+            // Check if the input is a valid number
+            if (num < 0) {
+                document.getElementById("result").textContent = "Factorial is not defined for negative numbers.";
+                return;
+            }
+
+            for (var i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+
+            document.getElementById("Fresult").textContent = 
+                "The factorial of " + num + " is " + factorial;
+        }
+  
+</script>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+    <div class="col"> Fibonacci series</div>
+    <div class="col">
+        <label for="number">Enter a number:</label>
+    <input type="text" id="Fibonumber" />
+    <button onclick="generateFibonacci()">Calculate</button>
+    <p id="Fiboresult"></p>
+
+    <script>
+        function generateFibonacci() {
+            var num = document.getElementById("Fibonumber").value;
+            var a = 0, b = 1, next;
+            var result = a + ', ' + b;
+
+            for (var i = 2; i < num; i++) {
+                next = a + b;
+                result += ', ' + next;
+                a = b;
+                b = next;
+            }
+
+            document.getElementById("Fiboresult").innerHTML = result;
+        }
+    </script>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+    <div class="col">Prime Number or Not</div>
+    <div class="col">
+        <label for="number">Enter a number:</label>
+        <input type="text" id="Primenumber" />
+        <button onclick="checkPrime()">Check</button>
+        <p id="Presult"></p>
+    
+        <script>
+            function checkPrime() {
+                var num = Number(document.getElementById("Primenumber").value);
+                if (num <= 1) {
+                    document.getElementById("Presult").innerHTML = "Please enter a number greater than 1.";
+                    return;
+                }
+    
+                var isPrime = true;
+                for (var i = 2; i < num; i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+    
+                if (isPrime) {
+                    document.getElementById("Presult").innerHTML = num + " is a prime number.";
+                } else {
+                    document.getElementById("Presult").innerHTML = num + " is not a prime number.";
+                }
+            }
+        </script>
+    </body>
+    </html>
+
+
+
+        

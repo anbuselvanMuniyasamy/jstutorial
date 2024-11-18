@@ -108,27 +108,60 @@
         <div class="row mt-4" >
             <div class="col">Hike to the employee</div>
             <div class="col">
-                    <input type="number" name="salary" id="Hike" class="form-control" placeholder="salary amount"/><br>
-                    <input type="number" name="year" id="experience" class="form-control" placeholder="year of experience"/><br>
-                <button class="btn btn-warning" onclick="salaryhike()">Calculate the Hike amount</button>
-                <p id="Hikeresult"></p>
+                    <input type="text" name="salary" id="salary" onkeyup = "salaryHike()" class="form-control" placeholder="salary amount"/><br>
+                    <input type="text" name="experience" id="experience" onkeyup = "salaryHike()" class="form-control" placeholder="year of experience"/><br>
+                <button class="btn btn-warning" type ="button" >Calculate the Hike amount</button>
+                <p id="HikeResult"></p>
 
                <script>
-                   function salaryhike(){
+                
+                   function salaryHike(){
 
-                    let salary = document.getElementById('Hike').value;
-                    let year = document.getElementById('experience').value;
+                    let salary = Number(document.getElementById('salary').value);
+                    let experience = Number(document.getElementById('experience').value);
                     let result="";
 
-                   if (salary < 25000 && experience > 3 ) {
+                    console.log(salary,experience);
+                   if ( experience > 3 && salary < 25000 ) {
                       let hike = salary * 0.05;      
                       result = "salary is"+ (salary + hike);
                       }else{
-                       result = "sorry,No Hike for your salary" ;
+                       result = "sorry,No Hike" + salary ;
                     }
                               
-               document.getElementById('Hikeresult').innerHTML = result;
+               document.getElementById('HikeResult').innerHTML = result;
                 }
               </script>
+            </div>
+        </div>
+
+        <h2>for loop concept</h2>
+        <div class="row mt-4">
+            <div class="col">Range of numbers</div>
+            <div class="col">
+                <input type="number" id="Start" placeholder="Enter first number">
+                <input type="number" id="End" placeholder="Enter last number">
+                <button class="btn btn-warning" onclick="DisplayRange()">Show Range</button>
+
+                <p id="output"></p>
+           <script>
+
+            function DisplayRange(){
+
+                let Start = Number(document.getElementById("Start").value);
+                let End = Number(document.getElementById("End").value);
+                let output = "";
+
+                for(let num = Math.min(Start,End); num <= Math.max(Start,End); num++)
+            {
+             output += num +""; 
+            }
+            console.log(range.trim());
+
+            }
+           </script>
+
+
+
             </div>
         </div>
